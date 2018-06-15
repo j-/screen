@@ -6,11 +6,11 @@ export interface Props {
 }
 
 export class Viz extends React.Component<Props> {
-	private canvas: HTMLCanvasElement;
+	// private canvas: HTMLCanvasElement;
 
 	render () {
 		return (
-			<canvas ref={(el) => this.canvas = el as HTMLCanvasElement} />
+			<pre>{JSON.stringify(this.props.screens, null, 2)}</pre>
 		);
 	}
 }
