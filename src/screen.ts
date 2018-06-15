@@ -16,7 +16,7 @@ declare global {
 	}
 }
 
-interface ImmutableScreen {
+export interface ImmutableScreen {
 	readonly availHeight: number;
 	readonly availLeft: number;
 	readonly availTop: number;
