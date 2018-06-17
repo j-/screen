@@ -9,6 +9,7 @@ const uniqueScreens = uniqWith(isEqual);
 
 interface State {
 	screens: ImmutableScreen[];
+	latest: ImmutableScreen | null;
 }
 
 export default class VizContainer extends React.Component<{}, State> {
@@ -16,6 +17,7 @@ export default class VizContainer extends React.Component<{}, State> {
 
 	state: State = {
 		screens: [],
+		latest: null,
 	}
 
 	componentWillMount () {
@@ -28,12 +30,13 @@ export default class VizContainer extends React.Component<{}, State> {
 	}
 
 	render () {
-		return <Viz screens={this.state.screens} />;
+		return <Viz screens={this.state.screens} latest={this.state.latest} />;
 	}
 
 	private addScreen = (screen: ImmutableScreen) => {
 		this.setState((state) => ({
 			screens: uniqueScreens([...state.screens, screen]),
+			latest: screen,
 		}));
 	};
 }
