@@ -10,6 +10,9 @@ function getColor (index: number) {
 	return `hsl(${200 + index * 120}, 80%, 50%)`;
 }
 
+const ACTIVE_OPACITY = 1;
+const INACTIVE_OPACITY = 0.8;
+
 export class Viz extends React.Component<Props> {
 	render () {
 		return (
@@ -39,7 +42,8 @@ export class Viz extends React.Component<Props> {
 	}
 
 	private getScreenRects () {
-		return this.props.screens.map((screen, i) => (
+		const { screens, latest } = this.props;
+		return screens.map((screen, i) => (
 			<rect
 				key={i}
 				x={screen.availLeft}
@@ -47,7 +51,11 @@ export class Viz extends React.Component<Props> {
 				width={screen.width}
 				height={screen.height}
 				fill={getColor(i)}
-				opacity={this.props.latest && isEqual(screen, this.props.latest) ? 1 : 0.8}
+				opacity={
+					latest !== null && isEqual(screen, latest) ?
+						ACTIVE_OPACITY :
+						INACTIVE_OPACITY
+				}
 			/>
 		));
 	}
