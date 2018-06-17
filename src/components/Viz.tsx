@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { ImmutableScreen, isEqual } from './screen';
+import { ImmutableScreen, isEqual } from '../screen';
 
 export interface Props {
 	screens: ImmutableScreen[];
@@ -13,7 +13,7 @@ function getColor (index: number) {
 const ACTIVE_OPACITY = 1;
 const INACTIVE_OPACITY = 0.8;
 
-export class Viz extends React.Component<Props> {
+export default class Viz extends React.Component<Props> {
 	render () {
 		return (
 			<svg

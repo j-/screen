@@ -1,5 +1,5 @@
 import * as React from 'react';
-import VizContainer from './VizContainer';
+import VizContainer from '../containers/Viz';
 import './VizWrapper.css';
 
 const VizWrapper: React.StatelessComponent = () => (

@@ -1,3 +1,5 @@
+import { uniqWith } from 'ramda';
+
 declare global {
 	interface Screen {
 		readonly availHeight: number;
@@ -54,3 +56,5 @@ export const isEqual = (left: ImmutableScreen, right: ImmutableScreen) => (
 	left.pixelDepth === right.pixelDepth &&
 	left.width === right.width
 );
+
+export const uniqueScreens = uniqWith(isEqual);
