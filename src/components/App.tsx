@@ -1,15 +1,17 @@
 import * as React from 'react';
 import VizWrapper from './VizWrapper';
+import ScreenDetailsList from '../containers/ScreenDetailsList';
 import './App.css';
 
-class App extends React.Component {
-	public render() {
-		return (
-			<div className="App">
-				<VizWrapper />
-			</div>
-		);
-	}
-}
+const App: React.StatelessComponent = () => (
+	<div className="App">
+		<div className="App-viz">
+			<VizWrapper />
+		</div>
+		<div className="App-screen">
+			<ScreenDetailsList />
+		</div>
+	</div>
+);
 
 export default App;
