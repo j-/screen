@@ -4,9 +4,3 @@
 	flex-direction: row;
 	align-items: center;
 }
-
-.ScreenDetails > .ColorIcon {
-	width: 1em;
-	height: 1em;
-	margin: 0.25em;
-}
