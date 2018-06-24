@@ -9,6 +9,8 @@ const App: React.StatelessComponent = () => (
 			<VizWrapper />
 		</div>
 		<div className="App-screen">
+			<h2>Detected screens</h2>
+			<p>Move this window to other screens in order to detect them.</p>
 			<ScreenDetailsList />
 		</div>
 	</div>
