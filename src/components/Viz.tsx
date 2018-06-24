@@ -1,13 +1,10 @@
 import * as React from 'react';
 import { ImmutableScreen, isEqual } from '../screen';
+import { getColor } from '../color';
 
 export interface Props {
 	screens: ImmutableScreen[];
 	latest: ImmutableScreen | null;
-}
-
-function getColor (index: number) {
-	return `hsl(${200 + index * 120}, 80%, 50%)`;
 }
 
 const ACTIVE_OPACITY = 1;
