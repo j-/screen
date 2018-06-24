@@ -17,8 +17,8 @@ export default class Viz extends React.Component<Props> {
 				className="Viz"
 				xmlns="http://www.w3.org/2000/svg"
 				viewBox={this.calculateViewBox()}
-				width={500}
-				height={500}
+				width="50em"
+				height="30em"
 			>
 				{this.getScreenRects()}
 			</svg>
