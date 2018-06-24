@@ -1,0 +1,4 @@
+.SizeAvailable > span:not([title='']) {
+	cursor: help;
+	border-bottom: 1px dashed;
+}
