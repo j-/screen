@@ -1,6 +1,13 @@
 .ScreenDetails {
-	font-size: 1.5em;
 	display: flex;
 	flex-direction: row;
-	align-items: center;
+	align-items: baseline;
+}
+
+.ScreenDetails-size {
+	font-size: 1.5em;
+}
+
+.ScreenDetails-available {
+	color: #444;
 }
