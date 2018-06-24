@@ -10,6 +10,18 @@ export interface Props {
 const ACTIVE_OPACITY = 1;
 const INACTIVE_OPACITY = 0.8;
 
+/**
+ * The font size of each screen group is a function of the minimum screen
+ * dimension in pixels multiplied by this ratio. For example, if this constant
+ * is set to 0.1 and the screen size is 1920x1080 then the resulting font size
+ * would be 1080px * 0.1 = 108px.
+ */
+const BASE_FONT_SIZE_SCALE = 0.1;
+
+function calculateBaseFontSize (screen: ImmutableScreen) {
+	return BASE_FONT_SIZE_SCALE * Math.min(screen.width, screen.height);
+}
+
 export default class Viz extends React.Component<Props> {
 	render () {
 		return (
@@ -41,19 +53,32 @@ export default class Viz extends React.Component<Props> {
 	private getScreenRects () {
 		const { screens, latest } = this.props;
 		return screens.map((screen, i) => (
-			<rect
+			<g
 				key={i}
+				className="Viz-screen"
 				x={screen.availLeft}
 				y={screen.availTop}
-				width={screen.width}
-				height={screen.height}
-				fill={getColor(i)}
-				opacity={
-					latest !== null && isEqual(screen, latest) ?
-						ACTIVE_OPACITY :
-						INACTIVE_OPACITY
-				}
-			/>
+				style={{ fontSize: calculateBaseFontSize(screen) }}
+			>
+				<rect
+					className="Viz-screen-rect"
+					width={screen.width}
+					height={screen.height}
+					fill={getColor(i)}
+					opacity={
+						latest !== null && isEqual(screen, latest) ?
+							ACTIVE_OPACITY :
+							INACTIVE_OPACITY
+					}
+				/>
+				<text
+					className="Viz-screen-coords"
+					x="0.25em"
+					y="1.25em"
+				>
+					{screen.availLeft},{screen.availTop}
+				</text>
+			</g>
 		));
 	}
 }
