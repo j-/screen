@@ -56,8 +56,7 @@ export default class Viz extends React.Component<Props> {
 			<g
 				key={i}
 				className="Viz-screen"
-				x={screen.availLeft}
-				y={screen.availTop}
+				transform={`translate(${screen.availLeft} ${screen.availTop})`}
 				style={{ fontSize: calculateBaseFontSize(screen) }}
 			>
 				<rect
