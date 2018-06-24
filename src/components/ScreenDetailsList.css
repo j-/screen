@@ -1,6 +1,12 @@
+.ScreenDetailsList {
+	padding: 1em 0;
+}
+
 .ScreenDetailsList-item {
 	display: flex;
 	flex-direction: row;
+	height: 2em;
+	margin: 1em 0;
 }
 
 .ScreenDetailsList-item > .ColorIcon {
